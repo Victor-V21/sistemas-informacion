@@ -16,7 +16,7 @@ export const ThemedText = ({ children, variant = "h2", ...rest }: Props) => {
       adjustsFontSizeToFit
       {...rest}
     >
-      TehemedText
+      {children}
     </Text>
   );
 };

@@ -32,8 +32,8 @@ export const globalStyles = StyleSheet.create({
         paddingHorizontal: 8,
     },
     button : {
-        height: 80,
-        width: 80,
+        height: 75,
+        width: 75,
         backgroundColor: Colors.darkGray,
         borderRadius: 100,
         justifyContent: 'center',

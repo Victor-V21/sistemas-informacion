@@ -55,7 +55,7 @@ export default function CalculatorApp() {
         />
         <CalculatorButton
           label="x"
-          color={Colors.darkGray}
+          color={Colors.orange}
           onPress={() => console.log("x")}
         />
       </View>
@@ -78,7 +78,7 @@ export default function CalculatorApp() {
         />
         <CalculatorButton
           label="-"
-          color={Colors.darkGray}
+          color={Colors.orange}
           onPress={() => console.log("-")}
         />
       </View>
@@ -101,7 +101,7 @@ export default function CalculatorApp() {
         />
         <CalculatorButton
           label="+"
-          color={Colors.darkGray}
+          color={Colors.orange}
           onPress={() => console.log("+")}
         />
       </View>
@@ -110,6 +110,7 @@ export default function CalculatorApp() {
         <CalculatorButton
           label="0"
           color={Colors.darkGray}
+          doubleSize
           onPress={() => console.log("0")}
         />
         <CalculatorButton
@@ -119,7 +120,7 @@ export default function CalculatorApp() {
         />
         <CalculatorButton
           label="="
-          color={Colors.darkGray}
+          color={Colors.orange}
           onPress={() => console.log("=")}
         />
       </View>

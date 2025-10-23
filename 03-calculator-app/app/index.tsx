@@ -6,7 +6,15 @@ import { globalStyles } from "@/styles/global-styles";
 import { View } from "react-native";
 
 export default function CalculatorApp() {
-  const { number, preNumber, formula, buildNumber } = useCalculator();
+  const {
+    number,
+    preNumber,
+    formula,
+    buildNumber,
+    clean,
+    toggleSign,
+    deleteLast,
+  } = useCalculator();
 
   return (
     <View style={globalStyles.calculatorContainer}>
@@ -21,17 +29,17 @@ export default function CalculatorApp() {
         <CalculatorButton
           label="C"
           color={Colors.lightGray}
-          onPress={() => console.log("c")}
+          onPress={() => clean()}
         />
         <CalculatorButton
           label="+/-"
           color={Colors.lightGray}
-          onPress={() => console.log("+/-")}
+          onPress={() => toggleSign()}
         />
         <CalculatorButton
           label="del"
           color={Colors.lightGray}
-          onPress={() => console.log("del")}
+          onPress={() => deleteLast()}
         />
         <CalculatorButton
           label="÷"

@@ -7,13 +7,17 @@ import { View } from "react-native";
 
 export default function CalculatorApp() {
   const {
-    number,
     preNumber,
     formula,
     buildNumber,
     clean,
     toggleSign,
     deleteLast,
+    divideOperation,
+    multiplyOperation,
+    substractOperation,
+    addOperation,
+    calculateResult,
   } = useCalculator();
 
   return (
@@ -21,7 +25,11 @@ export default function CalculatorApp() {
       {/* Resultados */}
       <View style={{ paddingHorizontal: 30, paddingBottom: 20 }}>
         <ThemedText variant="h1">{formula}</ThemedText>
-        <ThemedText variant="h2">400</ThemedText>
+        {formula == preNumber ? (
+          <ThemedText variant="h2"> </ThemedText>
+        ) : (
+          <ThemedText variant="h2">{preNumber}</ThemedText>
+        )}
       </View>
 
       {/* Buttons rows */}
@@ -44,7 +52,7 @@ export default function CalculatorApp() {
         <CalculatorButton
           label="÷"
           color={Colors.orange}
-          onPress={() => console.log("÷")}
+          onPress={() => divideOperation()}
         />
       </View>
       {/* Numbers rows */}
@@ -67,7 +75,7 @@ export default function CalculatorApp() {
         <CalculatorButton
           label="x"
           color={Colors.orange}
-          onPress={() => console.log("x")}
+          onPress={() => multiplyOperation()}
         />
       </View>
 
@@ -90,7 +98,7 @@ export default function CalculatorApp() {
         <CalculatorButton
           label="-"
           color={Colors.orange}
-          onPress={() => console.log("-")}
+          onPress={() => substractOperation()}
         />
       </View>
 
@@ -113,7 +121,7 @@ export default function CalculatorApp() {
         <CalculatorButton
           label="+"
           color={Colors.orange}
-          onPress={() => console.log("+")}
+          onPress={() => addOperation()}
         />
       </View>
 
@@ -132,7 +140,7 @@ export default function CalculatorApp() {
         <CalculatorButton
           label="="
           color={Colors.orange}
-          onPress={() => console.log("=")}
+          onPress={calculateResult}
         />
       </View>
     </View>

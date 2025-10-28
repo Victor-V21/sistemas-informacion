@@ -1,3 +1,7 @@
+/*
+  Solo llama botones y ejecuta pequeñas funciones.
+*/
+
 import { useEffect, useRef, useState } from "react";
 
 enum Operator {
@@ -23,9 +27,12 @@ export const useCalculator = () => {
     } else {
       setFormula(number);
     }
-
-    // TODO: calcular subresultado
   }, [number]);
+
+  useEffect(() => {
+    const subResult = calculateSubresult();
+    setPreNumber(`${subResult}`);
+  }, [formula]);
 
   const clean = () => {
     setNumber("0");
@@ -99,9 +106,64 @@ export const useCalculator = () => {
       if (numberString === "0" && !number.includes(".")) {
         return;
       }
+
+      return setNumber(number + numberString);
     }
 
     setNumber(number + numberString);
+  };
+
+  const divideOperation = () => {
+    setLastNumber();
+    lastOperation.current = Operator.divide;
+  };
+
+  const multiplyOperation = () => {
+    setLastNumber();
+    lastOperation.current = Operator.multiply;
+  };
+
+  const substractOperation = () => {
+    setLastNumber();
+    lastOperation.current = Operator.substract;
+  };
+
+  const addOperation = () => {
+    setLastNumber();
+    lastOperation.current = Operator.add;
+  };
+
+  const calculateSubresult = () => {
+    const [firstValue, operator, secondValue] = formula.split(" ");
+
+    const num1 = Number(firstValue);
+    const num2 = Number(secondValue); // NAN
+
+    if (isNaN(num2)) {
+      return num1;
+    }
+
+    switch (operator) {
+      case Operator.add:
+        return num1 + num2;
+      case Operator.substract:
+        return num1 - num2;
+      case Operator.multiply:
+        return num1 * num2;
+      case Operator.divide:
+        return num1 / num2;
+      default:
+        throw new Error(`Operacion ${operator} no implementada.`);
+    }
+  };
+
+  const calculateResult = () => {
+    const result = calculateSubresult();
+
+    setFormula(`${result}`);
+
+    lastOperation.current = undefined;
+    setPreNumber(`0`);
   };
 
   return {
@@ -115,5 +177,11 @@ export const useCalculator = () => {
     clean,
     toggleSign,
     deleteLast,
+    divideOperation,
+    multiplyOperation,
+    substractOperation,
+    addOperation,
+    calculateResult,
+    calculateSubresult,
   };
 };

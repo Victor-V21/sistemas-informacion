@@ -1,13 +1,27 @@
+import { Redirect } from "expo-router";
 import React from "react";
-import { Text, View } from "react-native";
-import "../global.css";
 
 const index = () => {
-  return (
-    <View className="mx-2 py-10">
-      <Text className="text-3xl font-bold text-blue-500">Hola Mundo</Text>
-    </View>
-  );
+  return <Redirect href="/products" />;
+
+  // return (
+  //   <View className="text-center items-center">
+  //     {/* Fuente Black */}
+  //     <Text className="text-4xl font-work_black text-primary">Hola Mundo</Text>
+  //     {/* Fuente Medium */}
+  //     <Text className="text-4xl font-work_medium text-secondary-100">
+  //       Hola Mundo
+  //     </Text>
+
+  //     <Text className="text-4xl font-work_medium text-secondary-200">
+  //       Hola Mundo
+  //     </Text>
+  //     {/* Fuente Light */}
+  //     <Text className="text-4xl font-work_light text-tertiary">Hola Mundo</Text>
+
+  //     <Link href='/pro'></Link>
+  //   </View>
+  // );
 };
 
 export default index;

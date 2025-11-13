@@ -2,7 +2,8 @@ import { Redirect } from "expo-router";
 import React from "react";
 
 const index = () => {
-  return <Redirect href="/products" />;
+  // error?
+  return <Redirect href="/(tabs)/home" />;
 
   // return (
   //   <View className="text-center items-center">

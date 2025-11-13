@@ -11,9 +11,9 @@ const HomeScreen = () => {
   };
 
   return (
-    <View className="flex-1 justify-center px-10 gap-5">
+    <View className="flex-1 justify-center px-10 gap-1">
       <CustomButton color="primary" onPress={() => router.push("/products")}>
-        Productos
+        Productos (stack)
       </CustomButton>
 
       <CustomButton color="primary" onPress={() => router.push("/profile")}>
@@ -31,17 +31,7 @@ const HomeScreen = () => {
       >
         Productos
       </CustomButton>
-      <CustomButton onPress={onToogleDrawer}> Abrir Men</CustomButton>
-
-      {/* <Link className="mb-5" href="/products">
-        Productos
-      </Link>
-      <Link className="mb-5" href="/profile">
-        Perfil
-      </Link>
-      <Link className="mb-5" href="/settings">
-        Configuración
-      </Link> */}
+      <CustomButton onPress={onToogleDrawer}>Abrir Menú</CustomButton>
     </View>
   );
 };

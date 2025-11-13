@@ -5,15 +5,15 @@ import React from "react";
 const TabsLayout = () => {
   return (
     <Tabs
-    // screenOptions={{
-    //   tabBarActiveTintColor: "green",
-    //   tabBarShowLabel: false,
-    //   headerShown: false,
-    //   tabBarStyle: {
-    //     backgroundColor: "black",
-    //   },
-    //   tabBarActiveBackgroundColor: "red",
-    // }}
+      screenOptions={{
+        tabBarActiveTintColor: "green",
+        tabBarShowLabel: false,
+        headerShown: false,
+        tabBarStyle: {
+          backgroundColor: "black",
+        },
+        tabBarActiveBackgroundColor: "red",
+      }}
     >
       <Tabs.Screen
         name="(stack)"
@@ -27,7 +27,7 @@ const TabsLayout = () => {
       <Tabs.Screen
         name="home/index"
         options={{
-          title: "Home Screen",
+          title: "Home Screen (tabs)",
           tabBarIcon: ({ color }) => {
             <FontAwesome size={28} name="home" color={color} />;
           },

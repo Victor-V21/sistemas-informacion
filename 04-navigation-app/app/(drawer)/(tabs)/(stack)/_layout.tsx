@@ -16,7 +16,8 @@ const StackLayout = () => {
         options={{ title: "Inicio" }}
       ></Stack.Screen>
 
-      <Stack.Screen
+      {/* Esto va en la version final */}
+      {/* <Stack.Screen
         name="products/index"
         options={{ title: "Productos", animation: "ios_from_left" }}
       ></Stack.Screen>
@@ -34,7 +35,7 @@ const StackLayout = () => {
       <Stack.Screen
         name="settings/index"
         options={{ title: "Configuración" }}
-      ></Stack.Screen>
+      ></Stack.Screen> */}
     </Stack>
   );
 };

@@ -3,6 +3,8 @@ import { Ionicons } from "@expo/vector-icons";
 import { Drawer } from "expo-router/drawer";
 import React from "react";
 
+// Este es el bueno
+
 const DraweLayout = () => {
   return (
     <Drawer
@@ -11,6 +13,7 @@ const DraweLayout = () => {
         overlayColor: "rgba(0, 0, 0, 0.7)",
         drawerActiveTintColor: "indigo",
         headerShadowVisible: false,
+        headerShown: false,
       }}
     >
       <Drawer.Screen
@@ -24,7 +27,7 @@ const DraweLayout = () => {
         }}
       />
       <Drawer.Screen
-        name="Home"
+        name="user/index"
         options={{
           drawerLabel: "Usuario",
           title: "Usuario",

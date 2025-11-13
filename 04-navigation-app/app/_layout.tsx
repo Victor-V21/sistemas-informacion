@@ -1,12 +1,8 @@
 import { useFonts } from "expo-font";
 import { Slot, SplashScreen } from "expo-router";
-import { StatusBar } from "expo-status-bar";
 import React, { useEffect } from "react";
-import { View } from "react-native";
 
-const RootLayout = () => {
-  SplashScreen.preventAutoHideAsync();
-
+const RootLayoutNav = () => {
   const [fontsLoaded, error] = useFonts({
     "WorkSans-Black": require("../assets/fonts/WorkSans-Black.ttf"),
     "WorkSans-Light": require("../assets/fonts/WorkSans-Light.ttf"),
@@ -15,17 +11,60 @@ const RootLayout = () => {
 
   useEffect(() => {
     if (error) throw error;
-    if (fontsLoaded) SplashScreen.hideAsync();
-  }, [fontsLoaded, error]);
+  }, [error]);
 
-  if (!fontsLoaded && !error) return null;
+  useEffect(() => {
+    if (fontsLoaded) {
+      SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
-    <View className="flex-1 bg-white">
-      <Slot />
-      <StatusBar style="dark" />
-    </View>
+    <Slot />
+    // <Drawer
+    //   drawerContent={CustomDrawer}
+    //   screenOptions={{
+    //     overlayColor: "rgba(0, 0, 0, 0.7)",
+    //     drawerActiveTintColor: "indigo",
+    //     headerShadowVisible: false,
+    //   }}
+    // >
+    //   <Drawer.Screen
+    //     name="(tabs)"
+    //     options={{
+    //       drawerLabel: "Inicio",
+    //       title: "Inicio",
+    //       drawerIcon: ({ color, size }) => (
+    //         <Ionicons name="home" size={size} color={color}></Ionicons>
+    //       ),
+    //     }}
+    //   />
+    //   <Drawer.Screen
+    //     name="user/index"
+    //     options={{
+    //       drawerLabel: "Usuario",
+    //       title: "Usuario",
+    //       drawerIcon: ({ color, size }) => (
+    //         <Ionicons name="person" size={size} color={color}></Ionicons>
+    //       ),
+    //     }}
+    //   />
+    //   <Drawer.Screen
+    //     name="schedule/index"
+    //     options={{
+    //       drawerLabel: "Horario",
+    //       title: "Horario",
+    //       drawerIcon: ({ color, size }) => (
+    //         <Ionicons name="calendar" size={size} color={color}></Ionicons>
+    //       ),
+    //     }}
+    //   />
+    // </Drawer>
   );
 };
 
-export default RootLayout;
+export default RootLayoutNav;

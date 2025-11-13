@@ -3,7 +3,7 @@ import React from "react";
 
 const index = () => {
   // error?
-  return <Redirect href="/(tabs)/home" />;
+  return <Redirect href="/(drawer)/(tabs)/(stack)/home" />;
 
   // return (
   //   <View className="text-center items-center">

@@ -1,6 +1,19 @@
-import { Stack } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
+import { DrawerActions } from "@react-navigation/native";
+import { router, Stack, useNavigation } from "expo-router";
 
 const StackLayout = () => {
+  const navigation = useNavigation();
+
+  const onHeaderLeftTap = (canGoBack: boolean | undefined) => {
+    if (canGoBack) {
+      router.back();
+      return;
+    }
+
+    navigation.dispatch(DrawerActions.openDrawer);
+  };
+
   return (
     <Stack
       screenOptions={{
@@ -9,15 +22,23 @@ const StackLayout = () => {
         contentStyle: {
           backgroundColor: "white",
         },
+        headerLeft: ({ tintColor, canGoBack }) => (
+          <Ionicons
+            onPress={() => onHeaderLeftTap(canGoBack)}
+            color={tintColor}
+            name={canGoBack ? "arrow-back-circle-outline" : "menu"}
+            size={20}
+            className="mr-5"
+          />
+        ),
       }}
     >
       <Stack.Screen
         name="home/index"
-        options={{ title: "Inicio" }}
+        options={{ title: "Inicio " }}
       ></Stack.Screen>
 
-      {/* Esto va en la version final */}
-      {/* <Stack.Screen
+      <Stack.Screen
         name="products/index"
         options={{ title: "Productos", animation: "ios_from_left" }}
       ></Stack.Screen>
@@ -35,7 +56,7 @@ const StackLayout = () => {
       <Stack.Screen
         name="settings/index"
         options={{ title: "Configuración" }}
-      ></Stack.Screen> */}
+      ></Stack.Screen>
     </Stack>
   );
 };

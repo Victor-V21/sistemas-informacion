@@ -1,8 +1,11 @@
+import { nowPlayingAction } from "@/core/actions/movies";
 import React from "react";
 import { Pressable, Text, View } from "react-native";
 import "../global.css";
 
 const RootLayout = () => {
+  nowPlayingAction();
+
   return (
     <View className="flex-1 bg-red-500 justify-center items-center">
       <Text className="text-white font-bold text-5xl">RootLayout</Text>

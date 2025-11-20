@@ -1,20 +1,18 @@
 import { moviesApi } from "@/core/api/movie-api";
-import { MovieDBMoviesResponse } from "@/infraestructure/interfaces";
+import { Movie, MovieDBMoviesResponse } from "@/infraestructure/interfaces";
 import { MovieMapper } from "@/infraestructure/mappers/movie.mapper";
 
-export const nowPlayingAction = async () =>
+export const nowPlayingAction = async () : Promise<Movie[]> =>
 {
     try{
         const { data } = await moviesApi.get<MovieDBMoviesResponse>('/now_playing');
         
         const movies = data.results.map(movieDbMovie => MovieMapper.fromtheMovieDbToMovie(movieDbMovie))
         
-        console.log(JSON.stringify(data, null, 2))
-        
-        return [];
+        return movies;
     }catch(error)
     {
-        console.log(error);
+        
         throw 'Nose pido obtener las peliculas'
     }
 };

@@ -2,8 +2,8 @@
 module.exports = {
   // NOTE: Update this to include the paths to all files that contain Nativewind classes.
   content: [
-    "./app/**/*", 
-    "./presentarion/**/*.{js,jsx,ts,tsx}"],
+    "./app/**/*",
+    "./presentation/**/*.{js,jsx,ts,tsx}"],
   presets: [require("nativewind/preset")],
   theme: {
     extend: {},

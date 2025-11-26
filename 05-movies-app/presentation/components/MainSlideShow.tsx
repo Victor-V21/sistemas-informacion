@@ -17,7 +17,11 @@ export const MainSlideShow = ({ movies }: Props) => {
       <Carousel
         data={movies}
         renderItem={({ item }) => (
-          <MoviesPoster id={item.id} poster={item.poster} />
+          <MoviesPoster
+            id={item.id}
+            poster={item.poster}
+            className="rounded-2xl"
+          />
         )}
         ref={ref}
         width={200}

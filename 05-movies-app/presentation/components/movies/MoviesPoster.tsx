@@ -7,6 +7,7 @@ interface Props {
   smallPoster?: boolean;
   className?: string;
 }
+
 const MoviesPoster = ({
   id,
   poster,

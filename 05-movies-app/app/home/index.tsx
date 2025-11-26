@@ -1,3 +1,4 @@
+import { MainSlideShow } from "@/presentation/components";
 import { useMovies } from "@/presentation/hooks";
 import React from "react";
 import { ActivityIndicator, Text, View } from "react-native";
@@ -19,6 +20,7 @@ const HomeScreen = () => {
   return (
     <View className="flex-1 bg-white mt-2" style={{ paddingTop: safeArea.top }}>
       <Text className="text-3xl font-bold px-4 mb-2">Home Screen</Text>
+      <MainSlideShow movies={nowPlatingQuery.data ?? []} />
     </View>
   );
 };

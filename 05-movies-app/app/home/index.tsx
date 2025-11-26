@@ -19,7 +19,7 @@ const HomeScreen = () => {
 
   return (
     <View className="flex-1 bg-white mt-2" style={{ paddingTop: safeArea.top }}>
-      <Text className="text-3xl font-bold px-4 mb-2">Home Screen</Text>
+      <Text className="text-3xl font-bold px-4 mb-2">Movies APP</Text>
       <MainSlideShow movies={nowPlatingQuery.data ?? []} />
     </View>
   );
